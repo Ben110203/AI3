@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage,ImageSendMessage
 )
 
 app = Flask(__name__)
@@ -42,7 +42,7 @@ def handle_message(event):
     # Replace the text by what you want to say
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=reply(event.message.text)))
+        ImageSendMessage( original_content_url='https://addons.cdn.mozilla.net/user-media/addon_icons/824/824288-64.png?modified=1516050890', preview_image_url='https://addons.cdn.mozilla.net/user-media/addon_icons/824/824288-64.png?modified=1516050890'))
      #   TextSendMessage(text=event.message.text))
 def reply(text):
     if text == "剪刀":
